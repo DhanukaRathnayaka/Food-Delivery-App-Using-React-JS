@@ -4,11 +4,14 @@
   justify-content: space-between;
   gap: 50px;
   margin-top: 100px;
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
 }
+
 .place-order-left {
   width: 100%;
-  max-width: 500px; /* or whatever max width you want */
+  max-width: 500px; /* max width on large screens */
 }
+
 .place-order-left .title {
   font-size: 30px;
   font-weight: 600;
@@ -23,9 +26,11 @@
   border-radius: 4px;
   outline-color: #121e22;
 }
+
 .place-order-left .multi-fields {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap; /* wrap fields on smaller widths */
 }
 
 .place-order-right {
@@ -33,6 +38,39 @@
   max-width: max(40%, 500px);
 }
 
+/* Cart total button */
 .place-order .cart-total button {
   margin-top: 30px;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .place-order {
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 50px;
+  }
+
+  .place-order-left,
+  .place-order-right {
+    max-width: 100%; /* full width on smaller screens */
+  }
+
+  .place-order-left .title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .place-order-left .multi-fields {
+    gap: 8px;
+  }
+
+  .place-order-left input {
+    padding: 8px;
+  }
+
+  .place-order .cart-total button {
+    width: 100%;
+    margin-top: 20px;
+  }
 }
